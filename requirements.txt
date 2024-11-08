@@ -1,0 +1,4 @@
+httpx>=0.24.0
+aioboto3>=11.0.0
+boto3
+botocore 
