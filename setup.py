@@ -1,30 +1,32 @@
 import pathlib
-
-from setuptools import setup
+from setuptools import setup, find_packages
 
 location = pathlib.Path(__file__).parent
-
-# The text of the README file
 README = (location / "README.md").read_text()
 
-# This call to setup() does all the work
 setup(
     name="requests-ip-rotator",
-    version="1.0.15",
+    version="1.0.16",
     description="Rotate through IPs in Python using AWS API Gateway.",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/Ge0rg3/requests-ip-rotator",
-    author="George Omnet",
-    author_email="pypi@georgeom.net",
-    license="GPLv3+",
+    author="Zahid Hussain",
+    author_email="zahid@crypticorn.com",
+    packages=find_packages(),
+    include_package_data=True,
+    install_requires=[
+        "httpx>=0.24.0",
+        "aioboto3>=11.0.0",
+        "boto3",
+        "botocore"
+    ],
+    python_requires=">=3.7",
     classifiers=[
-        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-        "Intended Audience :: Developers",
-        "Natural Language :: English",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Scientific/Engineering",
@@ -32,7 +34,4 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
         "Topic :: Internet :: WWW/HTTP",
     ],
-    packages=["requests_ip_rotator"],
-    include_package_data=True,
-    install_requires=["requests", "boto3"]
 )
